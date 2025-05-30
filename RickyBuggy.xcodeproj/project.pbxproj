@@ -30,6 +30,11 @@
 		2C23091C282A41B1003EC7DC /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C230908282A41B1003EC7DC /* CharacterDetailView.swift */; };
 		2C23091D282A41B1003EC7DC /* CharactersListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C230909282A41B1003EC7DC /* CharactersListItemViewModel.swift */; };
 		2C23091E282A41B1003EC7DC /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23090A282A41B1003EC7DC /* CharacterDetailViewModel.swift */; };
+		E3A894ED2DE993C60045034D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E3A894EC2DE993C60045034D /* Swinject */; };
+		E3A894EF2DE993C60045034D /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E3A894EE2DE993C60045034D /* Swinject-Dynamic */; };
+		E3A894F02DE9A5B00045034D /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2308FA282A41B1003EC7DC /* DIContainer.swift */; };
+		E3A894F12DE9A5B10045034D /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2308FA282A41B1003EC7DC /* DIContainer.swift */; };
+		E3A894F22DE9A5D30045034D /* CharactersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2308FF282A41B1003EC7DC /* CharactersListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +67,7 @@
 		2C2308FD282A41B1003EC7DC /* CharactersResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersResponseModel.swift; sourceTree = "<group>"; };
 		2C2308FF282A41B1003EC7DC /* CharactersListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersListView.swift; sourceTree = "<group>"; };
 		2C230901282A41B1003EC7DC /* CharacterPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPhoto.swift; sourceTree = "<group>"; };
-		2C230902282A41B1003EC7DC /* CharactersListItemView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.javascript; fileEncoding = 4; path = CharactersListItemView.swift; sourceTree = "<group>"; };
+		2C230902282A41B1003EC7DC /* CharactersListItemView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = CharactersListItemView.swift; sourceTree = "<group>"; };
 		2C230903282A41B1003EC7DC /* AppMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
 		2C230904282A41B1003EC7DC /* AppMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMainViewModel.swift; sourceTree = "<group>"; };
 		2C230905282A41B1003EC7DC /* FetchRetryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchRetryView.swift; sourceTree = "<group>"; };
@@ -77,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A894ED2DE993C60045034D /* Swinject in Frameworks */,
+				E3A894EF2DE993C60045034D /* Swinject-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +251,10 @@
 			dependencies = (
 			);
 			name = RickyBuggy;
+			packageProductDependencies = (
+				E3A894EC2DE993C60045034D /* Swinject */,
+				E3A894EE2DE993C60045034D /* Swinject-Dynamic */,
+			);
 			productName = RickyBuggyBright;
 			productReference = 2C2308BB282A3FD8003EC7DC /* RickyBuggy.app */;
 			productType = "com.apple.product-type.application";
@@ -294,6 +305,9 @@
 				Base,
 			);
 			mainGroup = 2C2308B2282A3FD8003EC7DC;
+			packageReferences = (
+				E3A894EB2DE993C60045034D /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 2C2308BC282A3FD8003EC7DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,7 +374,9 @@
 				2C2308BF282A3FD8003EC7DC /* RickyBuggyApp.swift in Sources */,
 				2C23091D282A41B1003EC7DC /* CharactersListItemViewModel.swift in Sources */,
 				2C230913282A41B1003EC7DC /* LocationDetailsResponseModel.swift in Sources */,
+				E3A894F22DE9A5D30045034D /* CharactersListView.swift in Sources */,
 				2C230911282A41B1003EC7DC /* SortMethod.swift in Sources */,
+				E3A894F02DE9A5B00045034D /* DIContainer.swift in Sources */,
 				2C23091B282A41B1003EC7DC /* TextExtensions.swift in Sources */,
 				2C23090D282A41B1003EC7DC /* NetworkManagerProtocol.swift in Sources */,
 				2C23090E282A41B1003EC7DC /* APIClient.swift in Sources */,
@@ -376,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2308D0282A3FD9003EC7DC /* CharacterDetailViewModelTests.swift in Sources */,
+				E3A894F12DE9A5B10045034D /* DIContainer.swift in Sources */,
 				2C2308ED282A413B003EC7DC /* CharactersListItemViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,7 +532,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RickyBuggy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "RickyBuggy/Preview\\ Content";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -546,7 +563,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RickyBuggy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "RickyBuggy/Preview\\ Content";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -638,6 +655,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E3A894EB2DE993C60045034D /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E3A894EC2DE993C60045034D /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3A894EB2DE993C60045034D /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		E3A894EE2DE993C60045034D /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3A894EB2DE993C60045034D /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C2308B3282A3FD8003EC7DC /* Project object */;
 }
