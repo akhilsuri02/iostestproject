@@ -7,6 +7,8 @@ import Foundation
 
 
 /// Level selected based on number of appearances in the show, if character appeared 10 times or more - it's high, if 3 times or more - its medium, if 1 or lower - it's low
+///
+///NOTE: I have considered between 1 to 3 as low
 enum AppearanceFrequency: Int {
     case high = 10
     case medium = 3
@@ -17,9 +19,9 @@ enum AppearanceFrequency: Int {
 
 extension AppearanceFrequency {
     init(count: Int) {
-        if count >= 1 {
+        if (count >= 1 && count < 3) {
             self = .low
-        } else if count >= 3 {
+        } else if (count >= 3 && count < 10) {
             self = .medium
         } else {
             self = .high
