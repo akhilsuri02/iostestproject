@@ -34,7 +34,22 @@ struct CharactersListItemView: View {
                 HStack(spacing: 16) {
                     VStack(alignment: .leading, spacing: 4) {
                         // FIXME: 6 - Make URL tappable
-                        Text(viewModel.url)
+                        // fixed
+                        // fixed
+                        
+                        Link(destination: URL(string: viewModel.url) ?? URL(string: "about:blank")!) {
+                            Text(viewModel.url)
+                                .foregroundColor(.blue) // Make it look like a link
+                                .underline()            // Underline it for typical link appearance
+                        }
+                        .contentShape(Rectangle()) // Defines the tappable area of the Link explicitly
+                        .onTapGesture {
+                            // An empty onTapGesture here "claims" the tap for the Link
+                            // preventing the parent NavigationLink from intercepting it.
+                            // The Link's default action (opening URL) will then fire.
+                        }
+                        .disabled(URL(string: viewModel.url) == nil)
+//                        Text(viewModel.url)
 
                         Text(viewModel.created)
                             .contentsStyle()
