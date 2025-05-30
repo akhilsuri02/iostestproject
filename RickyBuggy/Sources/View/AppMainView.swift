@@ -56,12 +56,16 @@ private extension AppMainView {
             message: Text("Choose sorting method"),
             buttons: [
                 .default(Text("Episodes Count")) {
-                    viewModel.setSortMethod(.episodesCount)
+                    viewModel.setSortMethod(.episodesCount);
+                    viewModel.showsSortActionSheet = false;
                 },
                 .default(Text("Name")) {
-                    viewModel.setSortMethod(.name)
+                    viewModel.setSortMethod(.name);
+                    viewModel.showsSortActionSheet = false;
                 },
-                .cancel(Text("Cancel")),
+                .cancel(Text("Cancel")){
+                    viewModel.showsSortActionSheet = false;
+                },
             ]
         )
     }

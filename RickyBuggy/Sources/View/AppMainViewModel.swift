@@ -45,7 +45,9 @@ final class AppMainViewModel: ObservableObject {
     }
     
     func setShowsSortActionSheet() {
-        showsSortActionSheetSubject.send(true)
+//        showsSortActionSheetSubject.send(true)
+        // This was always set to true, it should toggle
+        showsSortActionSheet.toggle()
     }
     
     func requestData() {
