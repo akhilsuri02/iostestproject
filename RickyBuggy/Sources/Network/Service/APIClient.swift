@@ -51,10 +51,10 @@ final class APIClient: APIProtocol {
             .eraseToAnyPublisher()
     }
     
-    func locationPublisher(with id: String) -> LocationPublisher {
+    func locationPublisher(with urlValue: String) -> LocationPublisher {
         guard let networkManager = networkManager else { return Empty().eraseToAnyPublisher() }
 
-        return Just("/api/location/\(id)")
+        return Just("/api/location/\(String(urlValue.split(separator: "/").last ?? "1"))")
             .setFailureType(to: Error.self)
             .flatMap(networkManager.publisher(path:))
             .decode(type: LocationDetailsResponseModel.self, decoder: JSONDecoder())
