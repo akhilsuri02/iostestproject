@@ -160,7 +160,7 @@ private extension CharacterDetailView {
     
     struct CharacterDetailView_Previews: PreviewProvider {
         static var previews: some View {
-            CharacterDetailView(viewModel: CharacterDetailViewModel(characterId: 1, name: "Johnny"))
+            CharacterDetailView(viewModel: CharacterDetailViewModel(characterId: 1, name: "Johnny", locationURL: ""))
         }
     }
 }

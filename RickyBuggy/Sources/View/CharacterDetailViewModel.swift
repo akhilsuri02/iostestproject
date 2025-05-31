@@ -28,7 +28,9 @@ final class CharacterDetailViewModel: ObservableObject {
     private var isLoading = false
     private var cancellables = Set<AnyCancellable>()
     
-    init(characterId: Int, name: String) {
+    private var locationUrlValue = ""
+    
+    init(characterId: Int, name: String, locationURL: String) {
         self.title = name
 
         let apiService = DIContainer.shared.resolve(APIClient.self)
@@ -92,6 +94,9 @@ final class CharacterDetailViewModel: ObservableObject {
             .store(in: &cancellables)
 
         characterIDSubject.send(characterId)
+        
+        
+        locationUrlValue = locationURL
     }
     
     // MARK: - Inputs
@@ -110,7 +115,8 @@ final class CharacterDetailViewModel: ObservableObject {
         if let apiService = DIContainer.shared.resolve(APIClient.self), let characterID = characterIDSubject.value {
             Publishers.Zip(apiService.characterDetailPublisher(with: String(characterID)),
                            // FIXME: 11 - FIX so location is fetched based on character location id
-                           apiService.locationPublisher(with: "2"))
+                           // fixed
+                           apiService.locationPublisher(with: locationUrlValue))
                 .sink(receiveCompletion: { [weak self] completion in
                     switch completion {
                     case let .failure(error):

@@ -16,6 +16,7 @@ enum AppearanceFrequency: Int {
 }
 
 // FIXME: 4 - Fix issue with initialisation not working accordingly to requirements written above, try improving clean code approach
+// Fixed
 
 extension AppearanceFrequency {
     init(count: Int) {
