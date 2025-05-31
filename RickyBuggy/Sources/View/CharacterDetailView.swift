@@ -6,6 +6,7 @@
 import SwiftUI
 
 // FIXME: 9 - Fix title (character name) so it's displayed on the top, just below navigation bar
+// fixed
 struct CharacterDetailView: View {
     @ObservedObject private var viewModel: CharacterDetailViewModel
     
@@ -14,25 +15,33 @@ struct CharacterDetailView: View {
     }
     
     var body: some View {
-        NavigationView {
+        // Since navigation link was set, you did not need a navigation view
+//        NavigationView {
             content
-                .navigationTitle(viewModel.title)
+//                .navigationTitle(viewModel.title)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .automatic) {
                         Button(action: viewModel.requestData) {
                             Image(systemName: "arrow.triangle.2.circlepath")
                         }
+                        .font(.body)
+                        .frame(height: 22)
                     }
                 }
-        }
+//        }
     }
 }
 
+// MARK: - View
 private extension CharacterDetailView {
     @ViewBuilder var content: some View {
         if viewModel.data != nil {
             ScrollView {
+                Text(viewModel.title)
+                    .font(.largeTitle) // Or whatever style suits a prominent title
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
                 VStack(alignment: .leading) {
                     photoSection
                     detailsSection
