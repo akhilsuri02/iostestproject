@@ -118,7 +118,7 @@ private extension CharacterDetailView {
                 
                 Spacer()
                 
-                Button(action: viewModel.setShowsLocationDetails()) {
+                Button(action: viewModel.setShowsLocationDetails) {
                     // FIXME: 12 - change to filled share icon using sfsymbols, confirm if functionallity works, fix if needed
                     // fixed
                     Image(systemName: "square.and.arrow.up.fill")
