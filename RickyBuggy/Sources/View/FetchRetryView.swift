@@ -23,10 +23,10 @@ struct FetchRetryView: View {
                     .lineLimit(1)
                 
                 VStack {
-                    ForEach(errors, id: \.self) { error in
-                        Text(error.localizedDescription)
-                            .font(.body)
-                            .foregroundColor(.secondary)
+                    ForEach(Array(errors.enumerated()), id: \.offset) { index, error in
+                            Text(error.localizedDescription)
+                                .font(.body)
+                                .foregroundColor(.secondary)
                     }
                 }
             }
@@ -46,6 +46,6 @@ struct FetchRetryView: View {
 
 struct FetchRetryView_Previews: PreviewProvider {
     static var previews: some View {
-        FetchRetryView(errors: [.locationRequestFailed], onRetry: {})
+        FetchRetryView(errors: [.locationRequestFailed(NSError(domain: "Preview", code: 1, userInfo: nil))], onRetry: {})
     }
 }
