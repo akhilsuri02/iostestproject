@@ -57,4 +57,9 @@ final class CharactersListItemViewModel: ObservableObject {
         
         characterSubject.send(character)
     }
+    
+    // MARK: - Deinitialization block
+    deinit {
+        print("CharactersListItemViewModel has been deallocated.")
+    }
 }
