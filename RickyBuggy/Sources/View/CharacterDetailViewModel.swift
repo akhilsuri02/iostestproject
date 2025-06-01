@@ -106,6 +106,11 @@ final class CharacterDetailViewModel: ObservableObject {
         locationUrlValue = locationURL
     }
     
+    // MARK: - Deinitialization block
+    deinit {
+        print("CharacterDetailViewModel has been deallocated.")
+    }
+    
     // MARK: - Inputs
 
     func setShowsLocationDetails() {

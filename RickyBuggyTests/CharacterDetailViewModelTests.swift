@@ -13,7 +13,7 @@ final class CharacterDetailViewModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        sut = CharacterDetailViewModel(characterId: 1, name: "test")
+        sut = CharacterDetailViewModel(characterId: 1, name: "test", locationURL: "test" )
     }
 
     override func tearDown() {
@@ -24,6 +24,14 @@ final class CharacterDetailViewModelTests: XCTestCase {
     func test_againstMemoryLeak() {
         weak var weakSut = sut
         sut = nil
-        XCTAssertNil(weakSut)
+        XCTAssertNil(weakSut, "Expected CharacterDetailViewModel to be deallocated, but it's not.")
+    }
+    func test_againstMemoryLeak() {
+        var localSut: CharacterDetailViewModel? = CharacterDetailViewModel(characterId: 1, name: "test", locationURL: "test")
+        weak var weakSut = localSut // weakSut now points to the same instance as localSut
+
+        localSut = nil // Release the strong reference
+        
+        XCTAssertNil(weakSut, "Expected CharacterDetailViewModel to be deallocated, but it's not.")
     }
 }
